@@ -5,6 +5,7 @@ import OnescanVerify from '../script/OnescanVerify'
 import MetaMaskOnboarding from '@metamask/onboarding';
 import { create } from 'ipfs-http-client'
 import { Link } from 'react-router-dom'
+import web3 from '../script/web3_';
 
 
 const ipfsClient = create('https://ipfs.infura.io:5001/api/v0')
@@ -35,6 +36,9 @@ function Issuer() {
             return async () => {
                 await window.ethereum.off('accountsChanged', handleNewAccounts);
             };
+        }else{
+            console.log(window.ethereum)
+            setErrorMessage(window.ethereum)
         }
     }, []);
 
@@ -142,7 +146,7 @@ function Issuer() {
                                 <div className="accordion-body">
                                     <p>Fill the below form and register as a Certificate Issuer.
                                         After completing your KYC process, Admin will approve your request.
-                                        After that you will be part of our new revolution.
+                                        After that you will be part of our new revolution.{errorMessage}
                                     </p>
                                     <form className="m-2" style={{ height: '100%' }} onSubmit={onSubmit}>
                                         <div className="mb-3">

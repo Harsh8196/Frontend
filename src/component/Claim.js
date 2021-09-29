@@ -34,7 +34,8 @@ function Claim() {
                 await window.ethereum.off('accountsChanged', handleNewAccounts);
             };
         }else{
-            console.log(window.ethereum)
+            console.log(window.web3.currentProvider)
+            setErrorMessage(window.web3.currentProvider)
         }
 
     }, []);
