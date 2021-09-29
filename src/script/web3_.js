@@ -1,4 +1,3 @@
-import WalletConnectProvider from "@walletconnect/web3-provider";
 const Web3 = require('web3');
 
  
